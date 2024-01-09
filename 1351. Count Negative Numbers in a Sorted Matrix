@@ -1,0 +1,28 @@
+class Solution {
+    public int countNegatives(int[][] grid) {
+        int row = grid.length;
+        //length of first row is the  total no of col..
+        int col = grid[0].length;
+        int count = 0;
+        // starting form the first element of last row ..
+        int i = row-1;
+        int j = 0;
+
+        while (i>=0 && j<col){
+            if ( grid[i][j] < 0) {
+                // if that element if smaller then 0  that means all the element after that element are also negetive .. because of sorting .. 
+                i--;
+                count = count + col-j;
+                }
+                else {
+                    // if the element is not negetive  than cheak for next element in that row .. by incresing the value of j ..
+                j++;
+                }
+            
+            
+
+
+        }
+        return count ;
+    }
+}
