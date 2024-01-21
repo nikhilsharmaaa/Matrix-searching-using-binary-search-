@@ -1,0 +1,32 @@
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        // if our matrix containing no elements thst means no elements in matrix just return false;
+          if(matrix == null || matrix.length < 1 || matrix[0].length <1) {
+            return false;
+        }
+        // now cheak form the last  elements of first row .. row start form 0 till matrix.length -1 ;
+        // and col start form matrix [0].length-1; tilll and equal to 0 ..
+        int row = 0;
+         int end = matrix[0].length -1;
+         while (row < matrix.length && 0 <= end ){
+                // now find mid 
+        // if your last element at any row is equal to  your target element just return that elements or true ;;       
+                if(target == matrix [row][end ]){
+                    return true ;
+                }
+                // if your last element of row is greater than target .. that means  it will also grearter than holl last col of matrix at that time .. bcoz of  sorting in incesing order .. just ignore that hole col col--;
+                if (target > matrix[row][end]  ){
+                    row++;
+                }
+                // if last elements of row is less than the target element that means target is greater that the hole row .. just ignore that row .. row ++;
+                else {
+                    end--;
+                }
+               
+         }
+         return false ;
+    }
+}
+
+
+
